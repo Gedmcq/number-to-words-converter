@@ -1,3 +1,3 @@
 # number-to-words-converter
 
-converts numbers to words with limit to one million
+converts numbers to words with limit to millions milestone
