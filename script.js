@@ -38,9 +38,9 @@ function converter(e) {
     const wordsHolder = document.getElementById('words');
 
     if (number.length <= 7) {
-        wordsHolder.innerText = loop(number, false, number.length > 6);
+        wordsHolder.innerHTML = loop(number, false, number.length > 6);
     } else {
-        wordsHolder.innerTex = 'Limit exceeded';
+        wordsHolder.innerHTML = 'Limit exceeded';
     }
 }
 
@@ -52,7 +52,7 @@ function loop(number, noSuffix, doubleDeepness) {
     }
 }
 
-function calculate(num, map) {
+function pickFromMap(num, map) {
     let decrement = map === 'oneDigit' ? 1 : 2;
     return !!Number(num) ? wordsMap[map][num - decrement] : '';
 }
@@ -62,13 +62,13 @@ function belowHundred(number) {
 
     let words = [];
     if (number < 20) {
-        words.push(calculate(number, 'oneDigit'));
+        words.push(pickFromMap(number, 'oneDigit'));
     } else {
         numberArray.forEach((number, index) => {
             if (!index) {
-                words.push(calculate(number, 'twoDigits'));
+                words.push(pickFromMap(number, 'twoDigits'));
             } else {
-                words.push(calculate(number, 'oneDigit'));
+                words.push(pickFromMap(number, 'oneDigit'));
             }
         });
     }
